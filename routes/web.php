@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Dashboard;
+use App\Livewire\Login;
+use App\Livewire\Contact;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +17,7 @@ use App\Livewire\Dashboard;
 */
 
 Route::get('/', Dashboard::class);
+Route::get('/login', Login::class);
+Route::get('/info', Contact::class);
+Route::get('/edit', Contact::class);
+Route::get('/create', Contact::class);
