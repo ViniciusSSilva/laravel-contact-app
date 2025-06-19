@@ -4,9 +4,14 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class Contact extends Component
+class EditContact extends Component
 {
-    private $edit = false;
+    public $edit = true;
+
+    public function save()
+    {
+
+    }
 
     public function render()
     {

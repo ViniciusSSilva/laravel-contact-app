@@ -5,16 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         @vite('resources/css/app.css')
 
-        <title>{{ $title ?? 'Page Title' }}</title>
+        <title>Contact Manager</title>
     </head>
-    <body>
-        <div class="flex flex-row justify-between p-4">
-            <a href="/" wire:navigate>Home</a>
-            <div class="flex flex-row gap-8">
-                <a href="/create" wire:navigate>Create Contact</a>
-                <a href="/login" wire:navigate>Login</a>
-            </div>
-        </div>
-        <div class="container">{{ $slot }}</div>
+    <body class="text-lg">
+        @livewire('nav-bar')
+        <div class="container mx-auto h-screen">{{ $slot }}</div>
     </body>
 </html>
