@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Dashboard;
 use App\Livewire\Login;
 use App\Livewire\CreateContact;
+use App\Livewire\EditContact;
+use App\Livewire\InfoContact;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,6 @@ use App\Livewire\CreateContact;
 
 Route::get('/', Dashboard::class);
 Route::get('/login', Login::class);
-// Route::get('/info', Contact::class);
-// Route::get('/edit', EditContact::class);
+Route::get('/info/{id}', InfoContact::class);
+Route::get('/edit/{id}', EditContact::class);
 Route::get('/create', CreateContact::class);

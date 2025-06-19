@@ -7,8 +7,6 @@ use App\Models\Contact;
 
 class CreateContact extends Component
 {
-    public $title = 'Create Contact';
-
     public $name = '';
 
     public $contact = '';
@@ -23,7 +21,13 @@ class CreateContact extends Component
             'email' => ['required', 'email'],
         ]);
 
-        Contact::create($this->only(['name', 'contact', 'email']));
+        $contact = new Contact();
+
+        $contact->name = $this->name;
+        $contact->contact = $this->contact;
+        $contact->email = $this->email;
+
+        $contact->save();
 
         return $this->redirect('/');
     }

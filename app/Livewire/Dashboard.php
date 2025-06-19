@@ -9,9 +9,9 @@ class Dashboard extends Component
 {
     public $contacts;
 
-    public function __construct()
+    public function mount()
     {
-        $this->contacts = Contact::all();
+        $this->contacts = Contact::where('deleted_at', null)->get();
     }
 
     public function deleteContact($id)
@@ -22,7 +22,7 @@ class Dashboard extends Component
 
         $contact = Contact::findOrFail($id);
 
-        $contact->softDelete();
+        $contact->delete();
     }
 
     public function render()
