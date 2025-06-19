@@ -11,7 +11,7 @@ class Dashboard extends Component
 
     public function mount()
     {
-        $this->contacts = Contact::where('deleted_at', null)->get();
+        $this->contacts = Contact::select('id', 'name')->where('deleted_at', null)->get();
     }
 
     public function deleteContact($id)
@@ -23,6 +23,8 @@ class Dashboard extends Component
         $contact = Contact::findOrFail($id);
 
         $contact->delete();
+
+        return $this->redirect('/');
     }
 
     public function render()

@@ -9,6 +9,8 @@
     </head>
     <body class="text-lg">
         <div class="p-4"><a href="/" wire:navigate><i class="text-2xl mt-0.5 fa-solid fa-address-book"></i></a></div>
-        <div class="container">{{ $slot }}</div>
+        <div class="container mx-auto h-screen">
+            <div class="flex justify-center pt-10">{{ $slot }}</div>
+        </div>
     </body>
 </html>

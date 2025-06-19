@@ -9,6 +9,8 @@
     </head>
     <body class="text-lg">
         @livewire('nav-bar')
-        <div class="container mx-auto h-screen">{{ $slot }}</div>
+        <div class="container mx-auto h-screen">
+            <div class="flex justify-center pt-10">{{ $slot }}</div>
+        </div>
     </body>
 </html>
