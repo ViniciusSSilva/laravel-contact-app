@@ -11,7 +11,7 @@ class Dashboard extends Component
 
     public function mount()
     {
-        $this->contacts = Contact::select('id', 'name')->where('deleted_at', null)->get();
+        $this->contacts = Contact::select('id', 'name')->get();
     }
 
     public function deleteContact($id)

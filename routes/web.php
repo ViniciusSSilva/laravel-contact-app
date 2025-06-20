@@ -3,9 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Dashboard;
 use App\Livewire\Login;
-use App\Livewire\CreateContact;
-use App\Livewire\EditContact;
-use App\Livewire\InfoContact;
+use App\Livewire\Contact;
+use App\Livewire\ContactForm;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +18,16 @@ use App\Livewire\InfoContact;
 */
 
 Route::get('/', Dashboard::class);
-Route::get('/login', Login::class);
-Route::get('/info/{id}', InfoContact::class);
-Route::get('/edit/{id}', EditContact::class);
-Route::get('/create', CreateContact::class);
+Route::get('/login', Login::class)->name('login')->middleware('guest');
+Route::prefix('contact')
+    ->middleware('auth')
+    ->group(function ()
+{
+    Route::get('/create', ContactForm::class);
+    Route::get('/{id}/edit', ContactForm::class);
+    Route::get('/{id}', Contact::class);
+});
+
+Route::fallback(function() {
+    return redirect('/');
+});

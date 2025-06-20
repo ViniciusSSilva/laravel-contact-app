@@ -27,12 +27,8 @@ class Login extends Component
             'email' => $this->email,
             'password' => $this->password]))
         {
-            session()->flash('message', 'You have successfully logged in!');
-
             return $this->redirect('/');
         }
-
-        session()->flash('error', 'Invalid credentials!');
     }
 
     public function render()
