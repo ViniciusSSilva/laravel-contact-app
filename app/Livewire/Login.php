@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -18,16 +19,13 @@ class Login extends Component
             'password' => ['required']
         ]);
 
-        [
-            'email' => $this->email,
-            'password' => $this->password,
-        ];
-
         if(Auth::attempt([
             'email' => $this->email,
             'password' => $this->password]))
         {
             return $this->redirect('/');
+        } else {
+            throw ValidationException::withMessages(['login' => 'Invalid Login']);
         }
     }
 
